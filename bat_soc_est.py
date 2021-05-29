@@ -38,7 +38,7 @@ NORMAL_CUR = 0.020
 
 # Find points at certain voltage
 # NOTE: In decending value as acquire by measurement
-VOLT_POINT = [ 4.13, 3.66, 3.40, 3.25, 2.5 ]
+VOLT_POINT = [ 4.13, 3.66, 3.48, 3.35, 3.0, 2.5 ]
 VOLT_POINT_EPS = 0.005
 
 # ===============================================================================
