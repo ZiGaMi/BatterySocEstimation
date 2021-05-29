@@ -1,1 +1,2 @@
-TODO: ...
+numpy==1.18.2
+matplotlib==3.2.2

@@ -145,8 +145,8 @@ if __name__ == "__main__":
             soc_inter_n.append(n)
 
     # Print coefficients
-    print( "Koeficient: %s" % soc_inter_k )
-    print( "Initial value: %s" % soc_inter_n )
+    print( "k: %s" % soc_inter_k )
+    print( "n: %s" % soc_inter_n )
 
     # Linear interpolation curves
     soc_lin_est = []
@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
     # Plot 2
     ax[1].set_title("Battery SOC", fontsize=PLOT_TITLE_SIZE)
-    #ax[1].plot( _cell_volt, _cell_soc, "y", label="SOC"  	)
+    ax[1].plot( _cell_volt, _cell_soc, "g", label="SOC"  	)
 
     ax[1].grid(alpha=0.25)
     ax[1].set_ylabel("SOC [mAh]")
@@ -219,6 +219,7 @@ if __name__ == "__main__":
     ax_22.plot( _cell_volt, _cell_soc_per, "r", label="current" )
     ax_22.plot( VOLT_POINT, soc_point, "yo", label="current" )
     ax_22.plot( _cell_volt, soc_lin_est, "y--", label="current" )
+    ax_22.set_ylabel("Relative SOC[%]")
 
     plt.subplots_adjust(left=PLOT_ADJUST_LEFT, right=PLOT_ADJUST_RIGHT, top=PLOT_ADJUST_TOP, bottom=PLOT_ADJUST_BOTTOM, wspace=PLOT_ADJUST_WSPACE, hspace=PLOT_ADJUST_HSPACE)	
     plt.show()
