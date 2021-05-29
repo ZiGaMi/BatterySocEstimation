@@ -2,9 +2,10 @@
 # @file:    bat_soc_est.py
 # @note:    Battery SOC estimation based on voltage
 # @author:  Ziga Miklosic
-# @date:    27.02.2021
+# @date:    29.05.2021
 # @brief:   This scripts read cell voltage measurement during CC disharge and
 #           visualise it 
+# @version: V1.0.0
 # ===============================================================================
 
 # ===============================================================================
