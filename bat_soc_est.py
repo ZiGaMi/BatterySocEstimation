@@ -35,6 +35,11 @@ DISCHARGE_CUR = 0.200
 # Unit: ampers
 NORMAL_CUR = 0.020
 
+# Find points at certain voltage
+# NOTE: In decending value as acquire by measurement
+VOLT_POINT = [ 4.13, 3.66, 3.40, 3.25, 2.5 ]
+VOLT_POINT_EPS = 0.005
+
 # ===============================================================================
 #       CLASSES
 # ===============================================================================
@@ -108,10 +113,7 @@ if __name__ == "__main__":
     # End SOC value
     _total_soc = _cell_soc[-1]
 
-    # Find points at certain voltage
-    # NOTE: In decending value as acquire by measurement
-    VOLT_POINT = [ 4.13, 3.66, 3.40, 3.25, 2.5 ]
-    VOLT_POINT_EPS = 0.005
+    # SOC&voltage points for linear interpolation
     soc_point_idx = 0
     soc_point = []
 
@@ -217,28 +219,6 @@ if __name__ == "__main__":
     ax_22.plot( _cell_volt, _cell_soc_per, "r", label="current" )
     ax_22.plot( VOLT_POINT, soc_point, "yo", label="current" )
     ax_22.plot( _cell_volt, soc_lin_est, "y--", label="current" )
-   # ax_22.set_ylabel("Current [A]")
-
-
-    """     
-    _soc_estimation_sec = []
-    for idx, vol in enumerate(_cell_volt):
-        
-            if vol < 3.00:
-                _soc_estimation_sec.append( 0.0 )
-            elif vol < 3.35:
-                est = 0.13888 * vol - 0.420
-                _soc_estimation_sec.append( est )
-            elif vol < 3.65:
-                est = 1.68 * vol - 5.60
-                _soc_estimation_sec.append( est )
-            else:
-                est = 0.92 * vol - 2.80
-                _soc_estimation_sec.append( est  )
-
-    ax_22.plot( _cell_volt, _soc_estimation_sec, "g", label="estimation" ) 
-    """
-
 
     plt.subplots_adjust(left=PLOT_ADJUST_LEFT, right=PLOT_ADJUST_RIGHT, top=PLOT_ADJUST_TOP, bottom=PLOT_ADJUST_BOTTOM, wspace=PLOT_ADJUST_WSPACE, hspace=PLOT_ADJUST_HSPACE)	
     plt.show()
